@@ -20,6 +20,7 @@ pipeline {
         }
         stage('Push Image') {
             steps {
+		    echo 'Push the image'
             }
         }
     }
