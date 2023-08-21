@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "crymeariver33/yocto_wandboard"
         registryCredential = 'docker-hub-credentials'
+        DOCKERHUB_CREDENTIALS= credentials('docker-hub-credentials')     
     }
     agent { any }
     stages {
