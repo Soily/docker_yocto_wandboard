@@ -10,6 +10,7 @@ pipeline {
                 script {
                     def dockerHome = tool 'myDocker'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
+                    docker.withRegistry(registry, registryCredential)
                 }
             }
         }
