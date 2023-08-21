@@ -16,14 +16,19 @@ pipeline {
 		}
 		stage('Build Docker Image') {
 		    steps {
-			    sh 'sudo docker build - < Dockerfile -t crymariver33/yocto_wandboard:0.1 .'     
-			    echo 'Build Image Completed'
+			    	sh 'docker build - < Dockerfile -t crymariver33/yocto_wandboard:0.1 .'     
+			    	echo 'Build Image Completed'
 		    }
 		}
 		stage('Push Image') {
 		    steps {
-			    echo 'Push the image'
+			    	echo 'Push the image'
 		    }
 		}
+		post{
+    			always {  
+      				sh 'docker logout'           
+    			}      
+  		} 
 	}
 }
