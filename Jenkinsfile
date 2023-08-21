@@ -1,7 +1,5 @@
 pipeline {
     environment {
-        registry = "crymeariver33/yocto_wandboard"
-        registryCredential = 'docker-hub-credentials'
         DOCKERHUB_CREDENTIALS= credentials('docker-hub-credentials')     
     }
     agent { any }
@@ -9,20 +7,18 @@ pipeline {
         stage('Initialize'){
             steps {
                 script {
-                    def dockerHome = tool 'myDocker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
                     docker.withRegistry(registry, registryCredential)
                 }
             }
         }
-        stage('Test Docker Image Environment') {
+        stage('Build Docker Image') {
             steps {
-                sh 'echo TITTEN =$TITTEN'
+                sh 'sudo docker build - < Dockerfile -t crymariver33/yocto_wandboard:0.1 .'     
+	            echo 'Build Image Completed'
             }
         }
-        stage('Build image') {
+        stage('Push Image') {
             steps {
-                echo 'Starting to build docker image'
             }
         }
     }
