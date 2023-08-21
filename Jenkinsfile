@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('Build Docker Image') {
 		    steps {
-			    	sh 'docker build - < Dockerfile -t crymariver33/yocto_wandboard:0.1 .'     
+			    	sh 'docker build - < Dockerfile -t crymariver33/yocto_wandboard:0.1'     
 			    	echo 'Build Image Completed'
 		    }
 		}
