@@ -23,6 +23,7 @@ pipeline {
 		stage('Push Image') {
 		    steps {
 			    	echo 'Push the image'
+			        sh 'docker push crymeariver33/yocto_wandboard:0.1'
 		    }
 		}
 	}
