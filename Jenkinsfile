@@ -3,7 +3,7 @@ pipeline {
         registry = "crymeariver33/yocto_images"
         registryCredential = 'docker-hub-credentials'
     }
-    agent { dockerfile true }
+    agent { any }
     stages {
         stage('Initialize'){
             steps {
