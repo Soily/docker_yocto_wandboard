@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "crymeariver33/yocto_images"
+        registry = "crymeariver33/yocto_wandboard"
         registryCredential = 'docker-hub-credentials'
     }
     agent { any }
